@@ -1,0 +1,16 @@
+{
+  "projectVersion": 1,
+  "files": [
+    "app-release.apk"
+  ],
+  "treeExpansions": [],
+  "codeData": {
+    "comments": [],
+    "renames": []
+  },
+  "openTabs": [],
+  "activeTab": -1,
+  "cacheDir": "app-release.apk.cache",
+  "enableLiveReload": false,
+  "searchHistory": []
+}
