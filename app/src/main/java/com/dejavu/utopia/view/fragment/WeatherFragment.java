@@ -48,7 +48,8 @@ import org.joda.time.DateTimeZone;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class WeatherFragment extends Fragment implements WeatherInterface {
@@ -404,165 +405,196 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void getWeatherNow(WeatherNowBean bean) {
-        if (bean != null && bean.getNow() != null) {
-            WeatherNowBean.NowBaseBean now = bean.getNow();
-            String rain = now.getPrecip();
-            String hum = now.getHumidity();
-            String pres = now.getPressure();
-            String vis = now.getVis();
-            String windDir = now.getWindDir();
-            String windSc = now.getWindScale();
-            String condTxt = now.getText();
-            condCode = now.getIcon();
-            nowTmp = now.getTemp();
-            tvCond.setText(condTxt);
-            tvTmp.setText(nowTmp + "°");
-            if (ContentUtil.APP_SETTING_UNIT.equals("hua")) {
-                tvTmp.setText(TransUnitUtil.getF(nowTmp) + "°");
-            }
-            tvTodayRain.setText(rain + "mm");
-            tvTodayPressure.setText(pres + "HPA");
-            tvTodayHum.setText(hum + "%");
-            tvTodayVisible.setText(vis + "KM");
-            tvWindDir.setText(windDir);
-            tvWindSc.setText(windSc + "级");
-            DateTime nowTime = DateTime.now();
-            int hourOfDay = nowTime.getHourOfDay();
-            if (hourOfDay > 6 && hourOfDay < 19) {
-                ivBack.setImageResource(IconUtils.getDayBack(condCode));
-            } else {
-                ivBack.setImageResource(IconUtils.getNightBack(condCode));
-            }
-            if (isEn) {
-                tvWindSc.setText("Level" + windSc);
-            }
-            swipeRefreshLayout.setRefreshing(false);
-        }
-    }
-
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void getWeatherForecast(WeatherDailyBean bean) {
-        if (bean != null && bean.getDaily() != null) {
-            weatherForecastBean = bean;
-            DateTime now = DateTime.now(DateTimeZone.UTC);
-//            tz = bean.getBasic().getTz();
-            float a = Float.valueOf(tz);
-            float minute = a * 60;
-            now = now.plusMinutes(((int) minute));
-            currentTime = now.toString("HH:mm");
-            List<WeatherDailyBean.DailyBean> daily_forecast = bean.getDaily();
-
-            WeatherDailyBean.DailyBean forecastBase = daily_forecast.get(0);
-            String condCodeD = forecastBase.getIconDay();
-            String condCodeN = forecastBase.getIconNight();
-            String tmpMin = forecastBase.getTempMin();
-            String tmpMax = forecastBase.getTempMax();
-            sunrise = forecastBase.getSunrise();
-            sunset = forecastBase.getSunset();
-            moonRise = forecastBase.getMoonRise();
-            moonSet = forecastBase.getMoonSet();
-            sunView.setTimes(sunrise, sunset, currentTime);
-            moonView.setTimes(moonRise, moonSet, currentTime);
-            todayMaxTmp = tmpMax;
-            todayMinTmp = tmpMin;
-            tvTodayMax.setText(tmpMax + "°");
-            tvTodayMin.setText(tmpMin + "°");
-            ivTodayDay.setImageResource(IconUtils.getDayIconDark(condCodeD));
-            ivTodayNight.setImageResource(IconUtils.getNightIconDark(condCodeN));
-
-            if (forecastAdapter == null) {
-                forecastAdapter = new ForecastAdapter(getActivity(), daily_forecast);
-                rvForecast.setAdapter(forecastAdapter);
-                LinearLayoutManager forecastManager = new LinearLayoutManager(getActivity());
-                forecastManager.setOrientation(LinearLayoutManager.VERTICAL);
-                rvForecast.setLayoutManager(forecastManager);
-            } else {
-                forecastAdapter.refreshData(getActivity(), daily_forecast);
-            }
-
-        }
-    }
-
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void getWarning(WarningBean.WarningBeanBase alarmBase) {
-
-        if (alarmBase != null) {
-            tvAlarm.setVisibility(View.VISIBLE);
-            String level = alarmBase.getLevel();
-            String type = alarmBase.getType();
-            if (ContentUtil.SYS_LANG.equals("en")) {
-                tvAlarm.setText(type);
-            } else {
-                tvAlarm.setText(type + "预警");
-            }
-            if (!TextUtils.isEmpty(level)) {
-                switch (level) {
-                    case "蓝色":
-                    case "Blue":
-                        tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_blue_alarm));
-                        tvAlarm.setTextColor(getResources().getColor(R.color.white));
-                        break;
-                    case "黄色":
-                    case "Yellow":
-                        tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_yellow_alarm));
-                        tvAlarm.setTextColor(getResources().getColor(R.color.white));
-                        break;
-                    case "橙色":
-                    case "Orange":
-                        tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_orange_alarm));
-                        tvAlarm.setTextColor(getResources().getColor(R.color.white));
-                        break;
-                    case "红色":
-                    case "Red":
-                        tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_red_alarm));
-                        tvAlarm.setTextColor(getResources().getColor(R.color.white));
-                        break;
-                    case "白色":
-                    case "White":
-                        tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_white_alarm));
-                        tvAlarm.setTextColor(getResources().getColor(R.color.black));
-                        break;
+    public void getWeatherNow(final WeatherNowBean bean) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (bean != null && bean.getNow() != null) {
+                    WeatherNowBean.NowBaseBean now = bean.getNow();
+                    String rain = now.getPrecip();
+                    String hum = now.getHumidity();
+                    String pres = now.getPressure();
+                    String vis = now.getVis();
+                    String windDir = now.getWindDir();
+                    String windSc = now.getWindScale();
+                    String condTxt = now.getText();
+                    condCode = now.getIcon();
+                    nowTmp = now.getTemp();
+                    tvCond.setText(condTxt);
+                    tvTmp.setText(nowTmp + "°");
+                    if (ContentUtil.APP_SETTING_UNIT.equals("hua")) {
+                        tvTmp.setText(TransUnitUtil.getF(nowTmp) + "°");
+                    }
+                    tvTodayRain.setText(rain + "mm");
+                    tvTodayPressure.setText(pres + "HPA");
+                    tvTodayHum.setText(hum + "%");
+                    tvTodayVisible.setText(vis + "KM");
+                    tvWindDir.setText(windDir);
+                    tvWindSc.setText(windSc + "级");
+                    DateTime nowTime = DateTime.now();
+                    int hourOfDay = nowTime.getHourOfDay();
+                    if (hourOfDay > 6 && hourOfDay < 19) {
+                        ivBack.setImageResource(IconUtils.getDayBack(condCode));
+                    } else {
+                        ivBack.setImageResource(IconUtils.getNightBack(condCode));
+                    }
+                    if (isEn) {
+                        tvWindSc.setText("Level" + windSc);
+                    }
+                    swipeRefreshLayout.setRefreshing(false);
                 }
             }
-        } else {
-            tvAlarm.setVisibility(View.GONE);
-        }
+        });
+        executorService.shutdown();
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void getWeatherForecast(final WeatherDailyBean bean) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (bean != null && bean.getDaily() != null) {
+                    weatherForecastBean = bean;
+                    DateTime now = DateTime.now(DateTimeZone.UTC);
+//            tz = bean.getBasic().getTz();
+                    float a = Float.valueOf(tz);
+                    float minute = a * 60;
+                    now = now.plusMinutes(((int) minute));
+                    currentTime = now.toString("HH:mm");
+                    List<WeatherDailyBean.DailyBean> daily_forecast = bean.getDaily();
+
+                    WeatherDailyBean.DailyBean forecastBase = daily_forecast.get(0);
+                    String condCodeD = forecastBase.getIconDay();
+                    String condCodeN = forecastBase.getIconNight();
+                    String tmpMin = forecastBase.getTempMin();
+                    String tmpMax = forecastBase.getTempMax();
+                    sunrise = forecastBase.getSunrise();
+                    sunset = forecastBase.getSunset();
+                    moonRise = forecastBase.getMoonRise();
+                    moonSet = forecastBase.getMoonSet();
+                    sunView.setTimes(sunrise, sunset, currentTime);
+                    moonView.setTimes(moonRise, moonSet, currentTime);
+                    todayMaxTmp = tmpMax;
+                    todayMinTmp = tmpMin;
+                    tvTodayMax.setText(tmpMax + "°");
+                    tvTodayMin.setText(tmpMin + "°");
+                    ivTodayDay.setImageResource(IconUtils.getDayIconDark(condCodeD));
+                    ivTodayNight.setImageResource(IconUtils.getNightIconDark(condCodeN));
+
+                    if (forecastAdapter == null) {
+                        forecastAdapter = new ForecastAdapter(getActivity(), daily_forecast);
+                        rvForecast.setAdapter(forecastAdapter);
+                        LinearLayoutManager forecastManager = new LinearLayoutManager(getActivity());
+                        forecastManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        rvForecast.setLayoutManager(forecastManager);
+                    } else {
+                        forecastAdapter.refreshData(getActivity(), daily_forecast);
+                    }
+
+                }
+            }
+        });
+        executorService.shutdown();
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void getWarning(final WarningBean.WarningBeanBase alarmBase) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (alarmBase != null) {
+                    tvAlarm.setVisibility(View.VISIBLE);
+                    String level = alarmBase.getLevel();
+                    String type = alarmBase.getType();
+                    if (ContentUtil.SYS_LANG.equals("en")) {
+                        tvAlarm.setText(type);
+                    } else {
+                        tvAlarm.setText(type + "预警");
+                    }
+                    if (!TextUtils.isEmpty(level)) {
+                        switch (level) {
+                            case "蓝色":
+                            case "Blue":
+                                tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_blue_alarm));
+                                tvAlarm.setTextColor(getResources().getColor(R.color.white));
+                                break;
+                            case "黄色":
+                            case "Yellow":
+                                tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_yellow_alarm));
+                                tvAlarm.setTextColor(getResources().getColor(R.color.white));
+                                break;
+                            case "橙色":
+                            case "Orange":
+                                tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_orange_alarm));
+                                tvAlarm.setTextColor(getResources().getColor(R.color.white));
+                                break;
+                            case "红色":
+                            case "Red":
+                                tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_red_alarm));
+                                tvAlarm.setTextColor(getResources().getColor(R.color.white));
+                                break;
+                            case "白色":
+                            case "White":
+                                tvAlarm.setBackground(getResources().getDrawable(R.drawable.shape_white_alarm));
+                                tvAlarm.setTextColor(getResources().getColor(R.color.black));
+                                break;
+                        }
+                    }
+                } else {
+                    tvAlarm.setVisibility(View.GONE);
+                }
+            }
+        });
+        executorService.shutdown();
+
     }
 
     @Override
-    public void getAirNow(AirNowBean bean) {
-        if (bean != null && bean.getNow() != null) {
-            ivLine.setVisibility(View.VISIBLE);
-            gridAir.setVisibility(View.VISIBLE);
-            rvAir.setVisibility(View.VISIBLE);
-            tvAirTitle.setVisibility(View.VISIBLE);
-            AirNowBean.NowBean airNowCity = bean.getNow();
-            String qlty = airNowCity.getCategory();
-            String aqi = airNowCity.getAqi();
-            String pm25 = airNowCity.getPm2p5();
-            String pm10 = airNowCity.getPm10();
-            String so2 = airNowCity.getSo2();
-            String no2 = airNowCity.getNo2();
-            String co = airNowCity.getCo();
-            String o3 = airNowCity.getO3();
-            tvAir.setText(qlty);
-            tvAirNum.setText(aqi);
-            tvTodayPm25.setText(pm25);
-            tvTodayPm10.setText(pm10);
-            tvTodaySo2.setText(so2);
-            tvTodayNo2.setText(no2);
-            tvTodayCo.setText(co);
-            tvTodayO3.setText(o3);
-            rvAir.setBackground(getAirBackground(aqi));
-        } else {
-            ivLine.setVisibility(View.GONE);
-            gridAir.setVisibility(View.GONE);
-            rvAir.setVisibility(View.GONE);
-            tvAirTitle.setVisibility(View.GONE);
-        }
+    public void getAirNow(final AirNowBean bean) {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (bean != null && bean.getNow() != null) {
+                    ivLine.setVisibility(View.VISIBLE);
+                    gridAir.setVisibility(View.VISIBLE);
+                    rvAir.setVisibility(View.VISIBLE);
+                    tvAirTitle.setVisibility(View.VISIBLE);
+                    AirNowBean.NowBean airNowCity = bean.getNow();
+                    String qlty = airNowCity.getCategory();
+                    String aqi = airNowCity.getAqi();
+                    String pm25 = airNowCity.getPm2p5();
+                    String pm10 = airNowCity.getPm10();
+                    String so2 = airNowCity.getSo2();
+                    String no2 = airNowCity.getNo2();
+                    String co = airNowCity.getCo();
+                    String o3 = airNowCity.getO3();
+                    tvAir.setText(qlty);
+                    tvAirNum.setText(aqi);
+                    tvTodayPm25.setText(pm25);
+                    tvTodayPm10.setText(pm10);
+                    tvTodaySo2.setText(so2);
+                    tvTodayNo2.setText(no2);
+                    tvTodayCo.setText(co);
+                    tvTodayO3.setText(o3);
+                    rvAir.setBackground(getAirBackground(aqi));
+                } else {
+                    ivLine.setVisibility(View.GONE);
+                    gridAir.setVisibility(View.GONE);
+                    rvAir.setVisibility(View.GONE);
+                    tvAirTitle.setVisibility(View.GONE);
+                }
+            }
+        });
+        executorService.shutdown();
+
     }
 
     private Drawable getAirBackground(String aqi) {

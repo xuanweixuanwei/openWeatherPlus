@@ -59,7 +59,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
@@ -364,7 +365,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                     getData(cityBeans, first);
                 } else {
-                    this.onError(new NullPointerException());
+                    this.onError(new ArrayIndexOutOfBoundsException());
                 }
             }
         });
@@ -524,41 +525,49 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void onResume() {
         super.onResume();
         DataUtil.setDataInterface(this);
-        if (!ContentUtil.APP_PRI_TESI.equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
-            if (fragments != null && fragments.size() > 0) {
-                for (Fragment fragment : fragments) {
-                    WeatherFragment weatherFragment = (WeatherFragment) fragment;
-                    weatherFragment.changeTextSize();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                if (!ContentUtil.APP_PRI_TESI.equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
+                    if (fragments != null && fragments.size() > 0) {
+                        for (Fragment fragment : fragments) {
+                            WeatherFragment weatherFragment = (WeatherFragment) fragment;
+                            weatherFragment.changeTextSize();
+                        }
+                    }
+                    if ("small".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
+                        tvLocation.setTextSize(15);
+                    } else if ("large".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
+                        tvLocation.setTextSize(17);
+                    } else {
+                        tvLocation.setTextSize(16);
+                    }
+                    ContentUtil.APP_PRI_TESI = ContentUtil.APP_SETTING_TESI;
+                }
+                if (ContentUtil.CHANGE_LANG) {
+                    if (ContentUtil.SYS_LANG.equalsIgnoreCase("en")) {
+                        changeLang(com.qweather.sdk.bean.base.Lang.EN);
+                    } else {
+                        changeLang(com.qweather.sdk.bean.base.Lang.ZH_HANS);
+                    }
+                    ContentUtil.CHANGE_LANG = false;
+                }
+                if (ContentUtil.CITY_CHANGE) {
+                    initFragments(true);
+                    ContentUtil.CITY_CHANGE = false;
+                }
+                if (ContentUtil.UNIT_CHANGE) {
+                    for (Fragment fragment : fragments) {
+                        WeatherFragment weatherFragment = (WeatherFragment) fragment;
+                        weatherFragment.changeUnit();
+                    }
+                    ContentUtil.UNIT_CHANGE = false;
                 }
             }
-            if ("small".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
-                tvLocation.setTextSize(15);
-            } else if ("large".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
-                tvLocation.setTextSize(17);
-            } else {
-                tvLocation.setTextSize(16);
-            }
-            ContentUtil.APP_PRI_TESI = ContentUtil.APP_SETTING_TESI;
-        }
-        if (ContentUtil.CHANGE_LANG) {
-            if (ContentUtil.SYS_LANG.equalsIgnoreCase("en")) {
-                changeLang(com.qweather.sdk.bean.base.Lang.EN);
-            } else {
-                changeLang(com.qweather.sdk.bean.base.Lang.ZH_HANS);
-            }
-            ContentUtil.CHANGE_LANG = false;
-        }
-        if (ContentUtil.CITY_CHANGE) {
-            initFragments(true);
-            ContentUtil.CITY_CHANGE = false;
-        }
-        if (ContentUtil.UNIT_CHANGE) {
-            for (Fragment fragment : fragments) {
-                WeatherFragment weatherFragment = (WeatherFragment) fragment;
-                weatherFragment.changeUnit();
-            }
-            ContentUtil.UNIT_CHANGE = false;
-        }
+        });
+        executorService.shutdown();
+
     }
 
     @Override
