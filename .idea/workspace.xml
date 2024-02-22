@@ -12,13 +12,94 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be821b9c-a116-4460-8b26-e02c9f654d34" name="Default Changelist" comment="" />
+    <list default="true" id="be821b9c-a116-4460-8b26-e02c9f654d34" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/libs/QWeather_Public_Android_V4.17.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/libs/HeWeather_sdk.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/heweather/owp/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/dejavu/utopia/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/adapter/ControlCityAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/adapter/ControlCityAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/adapter/ForecastAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/adapter/ForecastAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/adapter/LocLIstAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/adapter/LocLIstAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/adapter/SearchAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/adapter/SearchAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/adapter/ViewPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/adapter/ViewPagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/AddAttentionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/AddAttentionBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/AttentionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/AttentionBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/AttentionBeanBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/AttentionBeanBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/BarBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/BarBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/CityBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/CityBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/CityBeanEn.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/CityBeanEn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/CityBeanList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/CityBeanList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/CityNow.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/CityNow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/ForecastBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/ForecastBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/PushBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/PushBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/PushList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/PushList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/ReminderCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/ReminderCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/SettingBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/SettingBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/SmartForecastBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/SmartForecastBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/bean/UpdateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/bean/UpdateResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/crash/CrashHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/crash/CrashHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/dataInterface/DataInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/dataInterface/DataInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/dataInterface/DataUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/dataInterface/DataUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/presenters/WeatherInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/presenters/WeatherInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/presenters/WeatherPresenters.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/presenters/WeatherPresenters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/presenters/impl/WeatherImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/presenters/impl/WeatherImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/service/LocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/APKVersionCodeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/APKVersionCodeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/AppNetConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/AppNetConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/ContentUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/ContentUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/Defaultcontent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/Defaultcontent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/DeviceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/DeviceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/DisplayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/DisplayUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/IconUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/IconUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/NetStateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/NetStateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/PermissionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/PermissionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/SpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/SpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/TransUnitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/TransUnitUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/MyBottomBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/MyBottomBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/AboutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/AboutActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/BaseActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/BaseActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/CheckPermissionsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/CheckPermissionsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/ControlCityActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/ControlCityActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/SearchActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/SearchActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/SettingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/fragment/WeatherFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/fragment/WeatherFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/horizonview/HourlyForecastView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/horizonview/HourlyForecastView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/horizonview/IndexHorizontalScrollView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/horizonview/IndexHorizontalScrollView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/horizonview/ScrollWatched.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/horizonview/ScrollWatched.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/horizonview/ScrollWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/horizonview/ScrollWatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/skyview/SunView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/skyview/SunView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/window/LocListWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/window/LocListWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_weather.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_weather.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_today_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_today_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/heweather/owp/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/dejavu/utopia/ExampleUnitTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\xuanwei\.android\avd\Pixel_4_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[GDBNW19828001046]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -56,6 +137,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,6 +146,9 @@
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2cXKdjmLKNmiqj8XSqbE8dkRIf1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -77,7 +162,9 @@
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewD:/Android/OpenWeatherPlus-Android-master/app/src/main/java/com/dejavu/utopia/view/horizonview/HourlyForecastView.java_SELECTED" value="HourlyForecastView" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -165,18 +252,30 @@
       <option name="presentableId" value="Default" />
       <updated>1708252573340</updated>
     </task>
+    <task id="LOCAL-00001" summary="第一次提交">
+      <created>1708562114315</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708562114315</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/SplashActivity.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/SplashActivity.java</url>
           <line>152</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/MyApplication.java</url>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/MyApplication.java</url>
           <line>51</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
@@ -185,55 +284,71 @@
           <line>83</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+        <line-breakpoint suspend="THREAD" type="java-line">
           <url>jar://$PROJECT_DIR$/app/libs/log4j-1.2.17.jar!/org/apache/log4j/FileAppender.class</url>
           <line>130</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/window/LocListWindow.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/window/LocListWindow.java</url>
           <line>45</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>431</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>414</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>115</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>363</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>213</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>258</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/Location_Activity.java</url>
+        <line-breakpoint suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/Location_Activity.java</url>
           <line>219</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/heweather/owp/view/activity/MainActivity.java</url>
-          <line>333</line>
-          <option name="timeStamp" value="77" />
+          <url>jar://$PROJECT_DIR$/app/libs/HeWeather_sdk.jar!/interfaces/heweather/com/interfacesmodule/b/g.class</url>
+          <line>45</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/MainActivity.java</url>
+          <line>325</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/dejavu/utopia/view/activity/MainActivity.java</url>
+          <line>335</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-method">
+          <url>jar://$PROJECT_DIR$/app/libs/HeWeather_sdk.jar!/interfaces/heweather/com/interfacesmodule/c/e.class</url>
+          <line>58</line>
+          <properties class="interfaces.heweather.com.interfacesmodule.c.e" method="a" />
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
