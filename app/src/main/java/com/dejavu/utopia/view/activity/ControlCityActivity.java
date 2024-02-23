@@ -1,11 +1,14 @@
 package com.dejavu.utopia.view.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.adapter.ControlCityAdapter;
@@ -40,7 +43,7 @@ public class ControlCityActivity extends BaseActivity {
         if (cityBeanList != null) {
             datas = cityBeanList.getCityBeans();
         }
-        LinearLayoutManager forecastManager = new LinearLayoutManager(this);
+        LinearLayoutManager forecastManager=new LinearLayoutManager(this);
         forecastManager.setOrientation(LinearLayoutManager.VERTICAL);
         ControlCityAdapter followCityAdapter = new ControlCityAdapter(this, datas);
 

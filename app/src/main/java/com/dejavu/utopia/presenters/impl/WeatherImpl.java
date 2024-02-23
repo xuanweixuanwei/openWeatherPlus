@@ -20,6 +20,9 @@ import com.qweather.sdk.bean.weather.WeatherHourlyBean;
 import com.qweather.sdk.bean.weather.WeatherNowBean;
 import com.qweather.sdk.view.QWeather;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 /**
  * Created by niuchong on 2018/5/17.
@@ -27,11 +30,11 @@ import com.qweather.sdk.view.QWeather;
 
 public class WeatherImpl implements WeatherPresenters {
 
-    private Context context;
-    private WeatherInterface weatherInterface;
-    private String TAG = "sky";
-    private Lang lang;
-    private Unit unit;
+    private final Context context;
+    private final WeatherInterface weatherInterface;
+    private final String TAG = "sky";
+    private final Lang lang;
+    private final Unit unit;
 
 
     public WeatherImpl(Context context, WeatherInterface weatherInterface) {
@@ -191,9 +194,17 @@ public class WeatherImpl implements WeatherPresenters {
             }
 
             @Override
-            public void onSuccess(WeatherHourlyBean weatherHourlyBean) {
+            public void onSuccess(final WeatherHourlyBean weatherHourlyBean) {
                 if (Code.OK==(weatherHourlyBean.getCode())) {
-                    weatherInterface.getWeatherHourly(weatherHourlyBean);
+                    ExecutorService executorService = Executors.newSingleThreadExecutor();
+                    executorService.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            weatherInterface.getWeatherHourly(weatherHourlyBean);
+                        }
+                    });
+                    executorService.shutdown();
+
                     SpUtils.saveBean(context, "weatherHourly", weatherHourlyBean);
                 }
             }

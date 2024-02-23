@@ -13,12 +13,14 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.utils.ContentUtil;
@@ -124,11 +126,7 @@ public class HourlyForecastView extends View implements ScrollWatcher {
 
     private void init(Context context) {
         mContext = context;
-        if (ContentUtil.APP_SETTING_THEME.equals("深色")) {
-            isDark = true;
-        } else {
-            isDark = false;
-        }
+        isDark = ContentUtil.APP_SETTING_THEME.equals("深色");
         initDefValue();
         initPaint();
     }
@@ -386,7 +384,7 @@ public class HourlyForecastView extends View implements ScrollWatcher {
 
     private void drawBitmap(Canvas canvas, Bitmap bitmap, float left, float top) {
         canvas.save();
-        canvas.drawBitmap(bitmap, left - bitmap.getWidth() / 2, top, bitmapPaint);
+        canvas.drawBitmap(bitmap, left - (float) (bitmap.getWidth() / 2.0), top, bitmapPaint);
         canvas.restore();
     }
 

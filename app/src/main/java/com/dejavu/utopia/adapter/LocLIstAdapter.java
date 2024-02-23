@@ -1,12 +1,13 @@
 package com.dejavu.utopia.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.dataInterface.DataUtil;
 import com.dejavu.utopia.R;
@@ -19,11 +20,11 @@ import com.dejavu.utopia.view.window.LocListWindow;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocLIstAdapter extends Adapter<RecyclerView.ViewHolder> {
+public class LocLIstAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<CityBean> data;
-    private LocListWindow locListWindow;
-    private MainActivity activity;
+    private final List<CityBean> data;
+    private final LocListWindow locListWindow;
+    private final MainActivity activity;
 
     public LocLIstAdapter(LocListWindow locListWindow, List<CityBean> data, MainActivity context) {
         this.data = data;
@@ -80,7 +81,7 @@ public class LocLIstAdapter extends Adapter<RecyclerView.ViewHolder> {
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvCity;
 

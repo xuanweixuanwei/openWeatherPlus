@@ -1,10 +1,10 @@
 package com.dejavu.utopia.view.activity;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -18,6 +18,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -281,7 +283,7 @@ public class Location_Activity extends CheckPermissionsActivity
 		public void onLocationChanged(AMapLocation location) {
 			if (null != location) {
 
-				StringBuffer sb = new StringBuffer();
+				StringBuilder sb = new StringBuilder();
 				//errCode等于0代表定位成功，其他的为定位失败，具体的可以参照官网定位错误码说明
 				if(location.getErrorCode() == 0){
 					sb.append("定位成功" + "\n");
@@ -362,7 +364,7 @@ public class Location_Activity extends CheckPermissionsActivity
 	private void resetOption() {
 		// 设置是否需要显示地址信息
 		locationOption.setNeedAddress(cbAddress.isChecked());
-		/**
+		/*
 		 * 设置是否优先返回GPS定位结果，如果30秒内GPS没有返回定位结果则进行网络定位
 		 * 注意：只有在高精度模式下的单次定位有效，其他方式无效
 		 */
@@ -381,7 +383,7 @@ public class Location_Activity extends CheckPermissionsActivity
 		if (!TextUtils.isEmpty(strInterval)) {
 			try{
 				// 设置发送定位请求的时间间隔,最小值为1000，如果小于1000，按照1000算
-				locationOption.setInterval(Long.valueOf(strInterval));
+				locationOption.setInterval(Long.parseLong(strInterval));
 			}catch(Throwable e){
 				e.printStackTrace();
 			}
@@ -391,7 +393,7 @@ public class Location_Activity extends CheckPermissionsActivity
 		if(!TextUtils.isEmpty(strTimeout)){
 			try{
 				// 设置网络请求超时时间
-			     locationOption.setHttpTimeOut(Long.valueOf(strTimeout));
+			     locationOption.setHttpTimeOut(Long.parseLong(strTimeout));
 			}catch(Throwable e){
 				e.printStackTrace();
 			}
@@ -445,7 +447,7 @@ public class Location_Activity extends CheckPermissionsActivity
 	 */
 	private void destroyLocation(){
 		if (null != locationClient) {
-			/**
+			/*
 			 * 如果AMapLocationClient是在当前Activity实例化的，
 			 * 在Activity的onDestroy中一定要执行AMapLocationClient的onDestroy
 			 */

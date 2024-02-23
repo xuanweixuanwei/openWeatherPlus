@@ -6,12 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -21,6 +16,13 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.dejavu.utopia.MyApplication;
 import com.dejavu.utopia.R;
@@ -55,7 +57,7 @@ import java.util.concurrent.Executors;
 public class WeatherFragment extends Fragment implements WeatherInterface {
     private static final String PARAM = "LOCATION";
     List<ScrollWatcher> watcherList;
-    private List<TextView> textViewList = new ArrayList<>();
+    private final List<TextView> textViewList = new ArrayList<>();
     private ImageView ivTodayDay;
     private ImageView ivTodayNight;
     private TextView tvTodayTitle;
@@ -92,7 +94,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
     private boolean isEn = false;
     private SunView sunView;
     private SunView moonView;
-    private String tz = "+8.0";
+    private final String tz = "+8.0";
     private String currentTime;
     private String sunrise;
     private String sunset;
@@ -126,10 +128,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -161,7 +160,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
     private void initView(View view) {
         language = ContentUtil.SYS_LANG;
         DateTime now = DateTime.now(DateTimeZone.UTC);
-        float a = Float.valueOf(tz);
+        float a = Float.parseFloat(tz);
         float minute = a * 60;
         now = now.plusMinutes(((int) minute));
         currentTime = now.toString("HH:mm");
@@ -315,7 +314,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
     }
 
     private void initData(String location) {
-        WeatherImpl weatherImpl = new WeatherImpl(this.getActivity(), this);
+        WeatherImpl weatherImpl = new WeatherImpl(this.requireActivity(), this);
         weatherImpl.getWeatherHourly(location);
         weatherImpl.getAirForecast(location);
         weatherImpl.getAirNow(location);
@@ -336,7 +335,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
 
         if (!hasAni && !TextUtils.isEmpty(sunrise) && !TextUtils.isEmpty(sunset) && !TextUtils.isEmpty(moonRise) && !TextUtils.isEmpty(moonSet)) {
             DateTime now = DateTime.now(DateTimeZone.UTC);
-            float a = Float.valueOf(tz);
+            float a = Float.parseFloat(tz);
             float minute = a * 60;
             now = now.plusMinutes(((int) minute));
             currentTime = now.toString("HH:mm");
@@ -364,7 +363,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
     public void changeTextSize() {
         if (!TextUtils.isEmpty(sunrise) && !TextUtils.isEmpty(sunset) && !TextUtils.isEmpty(moonRise) && !TextUtils.isEmpty(moonSet)) {
             DateTime now = DateTime.now(DateTimeZone.UTC);
-            float a = Float.valueOf(tz);
+            float a = Float.parseFloat(tz);
             float minute = a * 60;
             now = now.plusMinutes(((int) minute));
             currentTime = now.toString("HH:mm");
@@ -381,7 +380,6 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
                     if ("mid".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
                         smallMid(textViewList);
                     } else if ("large".equalsIgnoreCase(ContentUtil.APP_SETTING_TESI)) {
-
                         smallLarge(textViewList);
                     }
                     break;
@@ -461,7 +459,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
                     weatherForecastBean = bean;
                     DateTime now = DateTime.now(DateTimeZone.UTC);
 //            tz = bean.getBasic().getTz();
-                    float a = Float.valueOf(tz);
+                    float a = Float.parseFloat(tz);
                     float minute = a * 60;
                     now = now.plusMinutes(((int) minute));
                     currentTime = now.toString("HH:mm");
@@ -799,7 +797,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
         tvSunTitle.setText(R.string.sun_moon);
         if (!TextUtils.isEmpty(sunrise) && !TextUtils.isEmpty(sunset) && !TextUtils.isEmpty(moonRise) && !TextUtils.isEmpty(moonSet)) {
             DateTime now = DateTime.now(DateTimeZone.UTC);
-            float a = Float.valueOf(tz);
+            float a = Float.parseFloat(tz);
             float minute = a * 60;
             now = now.plusMinutes(((int) minute));
             currentTime = now.toString("HH:mm");
@@ -825,7 +823,7 @@ public class WeatherFragment extends Fragment implements WeatherInterface {
         }
         if (!hasAni && !TextUtils.isEmpty(sunrise) && !TextUtils.isEmpty(sunset) && !TextUtils.isEmpty(moonRise) && !TextUtils.isEmpty(moonSet)) {
             DateTime now = DateTime.now(DateTimeZone.UTC);
-            float a = Float.valueOf(tz);
+            float a = Float.parseFloat(tz);
             float minute = a * 60;
             now = now.plusMinutes(((int) minute));
             currentTime = now.toString("HH:mm");

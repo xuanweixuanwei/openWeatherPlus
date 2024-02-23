@@ -266,7 +266,7 @@ public class SpUtils {
 
     @SuppressWarnings("unchecked")
     public static HashMap<String, Integer> String2SceneList(
-            String SceneListString) throws StreamCorruptedException,
+            String SceneListString) throws
             IOException, ClassNotFoundException {
         byte[] mobileBytes = Base64.decode(SceneListString.getBytes(),
                 Base64.DEFAULT);
@@ -301,11 +301,7 @@ public class SpUtils {
         String listStr = settings.getString(key, "");
         try {
             return String2SceneList(listStr);
-        } catch (StreamCorruptedException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
         return null;
@@ -436,7 +432,7 @@ public class SpUtils {
      */
     public <T> List<T> getListBean(Context context, String key) {
         SharedPreferences sp = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-        List<T> dataList = new ArrayList<T>();
+        List<T> dataList = new ArrayList<>();
         String strJson = sp.getString(key, null);
         if (null == strJson) {
             return dataList;

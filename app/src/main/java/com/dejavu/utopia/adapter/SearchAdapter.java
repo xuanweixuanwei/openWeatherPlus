@@ -1,9 +1,7 @@
 package com.dejavu.utopia.adapter;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
+
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -13,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.bean.CityBean;
@@ -35,14 +35,14 @@ import java.util.List;
 /**
  * 最近搜索
  */
-public class SearchAdapter extends Adapter<RecyclerView.ViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<CityBean> data;
-    private SearchActivity activity;
-    private String searchText;
+    private final List<CityBean> data;
+    private final SearchActivity activity;
+    private final String searchText;
     private Lang lang;
     private CityBeanList cityBeanList = new CityBeanList();
-    private boolean isSearching;
+    private final boolean isSearching;
 
     public SearchAdapter(SearchActivity activity, List<CityBean> data, String searchText, boolean isSearching) {
         this.activity = activity;
@@ -188,7 +188,7 @@ public class SearchAdapter extends Adapter<RecyclerView.ViewHolder> {
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvCity;
 

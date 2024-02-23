@@ -2,14 +2,14 @@ package com.dejavu.utopia.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.utils.ContentUtil;
@@ -22,7 +22,7 @@ import java.util.List;
 
 //import interfaces.heweather.com.interfacesmodule.bean.weather.WeatherDailyBean;
 
-public class ForecastAdapter extends Adapter<ForecastAdapter.MyViewHolder> {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.MyViewHolder> {
 
     private List<WeatherDailyBean.DailyBean> datas;
     private Context context;
@@ -132,7 +132,7 @@ public class ForecastAdapter extends Adapter<ForecastAdapter.MyViewHolder> {
     }
 
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView ivDay;
         private final ImageView ivNight;

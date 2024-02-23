@@ -1,16 +1,15 @@
 package com.dejavu.utopia.view.activity;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
+
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
@@ -24,6 +23,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -62,15 +67,12 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-
 public class MainActivity extends BaseActivity implements View.OnClickListener, DataInterface {
     private List<Fragment> fragments;
     private List<String> locaitons;
     private List<String> locaitonsEn;
     private List<String> cityIds;
-    private ViewPager viewPager;
+    private ViewPager2 viewPager;
     private LinearLayout llRound;
     private int mNum = 0;
     private TextView tvLocation;
@@ -82,6 +84,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private RelativeLayout rvTitle;
     private ImageView ivSet;
     private ImageView ivAdd;
+    private FragmentActivity context;
 
     /*首先调用父类onCreate()方法，然后通过setContentView(R.layout.activity_main);设置当前Activity的布局文件为activity_main。
 获取窗口对象Window window = getWindow();，并使用window.addFlags(WindowManager.LayoutParams
@@ -120,6 +123,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         // 这样做的目的是为了在界面布局上适配状态栏高度，使得布局内容能自适应屏幕且不被状态栏遮挡。
         setMargins(viewPager, 0, getStatusBarHeight(this) + DisplayUtil.dip2px(this, 52), 0, 0);
         setMargins(rvTitle, 0, getStatusBarHeight(this), 0, 0);
+        context = this;
     }
 
     private void addListener() {
@@ -152,7 +156,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                             }
                         };
                         timer.schedule(task, 3000);
-
 
                     }
                 })
@@ -368,6 +371,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     this.onError(new ArrayIndexOutOfBoundsException());
                 }
             }
+
         });
     }
 
@@ -461,7 +465,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     //添加到LinearLayout
                     llRound.addView(view, layoutParams);
                 }
-                viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), fragments));
+                viewPager.setAdapter(new ViewPagerAdapter(context , fragments));
                 //第一次显示小白点
                 llRound.getChildAt(0).setEnabled(true);
                 mNum = 0;
@@ -470,7 +474,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 } else {
                     llRound.setVisibility(View.VISIBLE);
                 }
-                viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
                     @Override
                     public void onPageScrolled(int i, float v, int i1) {
 

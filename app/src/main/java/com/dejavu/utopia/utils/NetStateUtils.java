@@ -24,13 +24,9 @@ public class NetStateUtils {
             networkInfo = manager.getActiveNetworkInfo();
         }
         //NetworkInfo对象为空 则代表没有网络
-        if (networkInfo == null) {
-            //无网络
-            netType = false;
-        } else {
-            //有网
-            netType = true;
-        }
+        //无网络
+        //有网
+        netType = networkInfo != null;
         return netType;
     }
 

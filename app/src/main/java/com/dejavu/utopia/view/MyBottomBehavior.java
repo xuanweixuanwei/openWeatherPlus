@@ -9,19 +9,27 @@ import android.content.res.TypedArray;
 import android.os.Build.VERSION;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.RestrictTo;
-import android.support.annotation.RestrictTo.Scope;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.R.dimen;
-import android.support.design.R.styleable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.CoordinatorLayout.Behavior;
-import android.support.v4.math.MathUtils;
-import android.support.v4.view.AbsSavedState;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.ViewDragHelper;
-import android.support.v4.widget.ViewDragHelper.Callback;
+
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.math.MathUtils;
+import androidx.core.view.ViewCompat;
+import androidx.customview.view.AbsSavedState;
+import androidx.customview.widget.ViewDragHelper.Callback;
+//import android.support.annotation.RestrictTo;
+//import android.support.annotation.RestrictTo.Scope;
+//import android.support.annotation.VisibleForTesting;
+//import android.support.design.R.dimen;
+//import android.support.design.R.styleable;
+//import android.support.design.widget.CoordinatorLayout;
+//import android.support.design.widget.CoordinatorLayout.Behavior;
+//import android.support.v4.math.MathUtils;
+//import android.support.v4.view.AbsSavedState;
+//import android.support.v4.view.ViewCompat;
+//import android.support.v4.widget.ViewDragHelper;
+//import android.support.v4.widget.ViewDragHelper.Callback;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -32,7 +40,11 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewParent;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.customview.widget.ViewDragHelper;
+
 import com.dejavu.utopia.MyApplication;
+import com.dejavu.utopia.R;
 import com.dejavu.utopia.utils.DisplayUtil;
 
 import java.lang.annotation.Retention;
@@ -41,7 +53,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyBottomBehavior<V extends View> extends Behavior<V> {
+public class MyBottomBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static final int STATE_DRAGGING = 1;
     public static final int STATE_SETTLING = 2;
     public static final int STATE_EXPANDED = 3;
@@ -162,17 +174,17 @@ public class MyBottomBehavior<V extends View> extends Behavior<V> {
 
     public MyBottomBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
-        TypedArray a = context.obtainStyledAttributes(attrs, styleable.BottomSheetBehavior_Layout);
-        TypedValue value = a.peekValue(styleable.BottomSheetBehavior_Layout_behavior_peekHeight);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BottomSheetBehavior_Layout);
+        TypedValue value = a.peekValue(R.styleable.BottomSheetBehavior_Layout_behavior_peekHeight);
         if (value != null && value.data == -1) {
             this.setPeekHeight(value.data);
         } else {
-            this.setPeekHeight(a.getDimensionPixelSize(styleable.BottomSheetBehavior_Layout_behavior_peekHeight, -1));
+            this.setPeekHeight(a.getDimensionPixelSize(R.styleable.BottomSheetBehavior_Layout_behavior_peekHeight, -1));
         }
 
-        this.setHideable(a.getBoolean(styleable.BottomSheetBehavior_Layout_behavior_hideable, false));
-        this.setFitToContents(a.getBoolean(styleable.BottomSheetBehavior_Layout_behavior_fitToContents, true));
-        this.setSkipCollapsed(a.getBoolean(styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed, false));
+        this.setHideable(a.getBoolean(R.styleable.BottomSheetBehavior_Layout_behavior_hideable, false));
+        this.setFitToContents(a.getBoolean(R.styleable.BottomSheetBehavior_Layout_behavior_fitToContents, true));
+        this.setSkipCollapsed(a.getBoolean(R.styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed, false));
         a.recycle();
         ViewConfiguration configuration = ViewConfiguration.get(context);
         this.maximumVelocity = (float) configuration.getScaledMaximumFlingVelocity();
@@ -203,7 +215,7 @@ public class MyBottomBehavior<V extends View> extends Behavior<V> {
         this.parentHeight = parent.getHeight();
         if (this.peekHeightAuto) {
             if (this.peekHeightMin == 0) {
-                this.peekHeightMin = parent.getResources().getDimensionPixelSize(dimen.design_bottom_sheet_peek_height_min);
+                this.peekHeightMin = parent.getResources().getDimensionPixelSize(R.dimen.design_bottom_sheet_peek_height_min);
             }
 
             this.lastPeekHeight = Math.max(this.peekHeightMin, this.parentHeight - parent.getWidth() * 9 / 16);
@@ -648,7 +660,7 @@ public class MyBottomBehavior<V extends View> extends Behavior<V> {
         if (!(params instanceof CoordinatorLayout.LayoutParams)) {
             throw new IllegalArgumentException("The view is not a child of CoordinatorLayout");
         } else {
-            Behavior behavior = ((CoordinatorLayout.LayoutParams) params).getBehavior();
+            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) params).getBehavior();
             if (!(behavior instanceof MyBottomBehavior)) {
                 throw new IllegalArgumentException("The view is not associated with MyBottomBehavior");
             } else {
@@ -683,7 +695,7 @@ public class MyBottomBehavior<V extends View> extends Behavior<V> {
                                 this.importantForAccessibilityMap.put(child, child.getImportantForAccessibility());
                             }
 
-                            ViewCompat.setImportantForAccessibility(child, 4);
+                            ViewCompat.setImportantForAccessibility(child, ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
                         }
                     }
                 }
@@ -752,7 +764,7 @@ public class MyBottomBehavior<V extends View> extends Behavior<V> {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public @interface State {
     }
 

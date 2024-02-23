@@ -8,10 +8,12 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
+
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+
+import androidx.core.app.ActivityCompat;
 
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -52,7 +54,7 @@ public class DeviceUtil {
                         //查找到序列号所在行
                         if (str.contains("Serial")) {
                             //提取序列号
-                            strCPU = str.substring(str.indexOf(":") + 1, str.length());
+                            strCPU = str.substring(str.indexOf(":") + 1);
                             //去空格
                             cpuAddress = strCPU.trim();
                             break;

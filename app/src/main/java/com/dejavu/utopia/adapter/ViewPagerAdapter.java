@@ -1,46 +1,32 @@
 package com.dejavu.utopia.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.List;
 
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerAdapter extends FragmentStateAdapter {
+    private final List<Fragment> fragments;
 
-    private List<Fragment> mList;
+    public ViewPagerAdapter(FragmentActivity fragment, List<Fragment> list) {
+        super(fragment);
+        this.fragments = list;
+    }
 
-    public ViewPagerAdapter(FragmentManager fm, List<Fragment> list) {
-        super(fm);
-        this.mList = list;
+
+    @NonNull
+    @Override
+    public Fragment createFragment(int i) {
+        return fragments.get(i);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return mList.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return mList != null ? mList.size() : 0;
-    }
-
-    @Override
-    public int getItemPosition(@NonNull Object object) {
-        return PagerAdapter.POSITION_NONE;
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return "";
-    }
-
-    @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-//        super.destroyItem(container, position, object);
+    public int getItemCount() {
+        return fragments != null ? fragments.size() : 0;
     }
 }

@@ -53,7 +53,8 @@
             android:layout_marginLeft="@dimen/margin_middle"
             android:ems="10"
             android:hint="@string/defaultInteval"
-            android:inputType="number" >
+            android:inputType="number"
+            >
 
             <requestFocus />
         </EditText>
@@ -77,7 +78,8 @@
             android:layout_marginLeft="@dimen/margin_middle"
             android:ems="10"
             android:hint="@string/defaultHttpTimeout"
-            android:inputType="number" >
+            android:inputType="number"
+           >
 
             <requestFocus />
         </EditText>

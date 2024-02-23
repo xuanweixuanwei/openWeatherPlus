@@ -33,7 +33,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     // CrashHandler 实例  
     @SuppressLint("StaticFieldLeak")
-    private static CrashHandler INSTANCE = new CrashHandler();
+    private static final CrashHandler INSTANCE = new CrashHandler();
 
     // 程序的 Context 对象  
     private Context mContext;
@@ -42,11 +42,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler mDefaultHandler;
 
     // 用来存储设备信息和异常信息  
-    private Map<String, String> infos = new HashMap<>();
+    private final Map<String, String> infos = new HashMap<>();
 
     // 用于格式化日期,作为日志文件名的一部分  
     @SuppressLint("SimpleDateFormat")
-    private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+    private final DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 
 
     /**
@@ -165,7 +165,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      * @return 返回文件名称, 便于将文件传送到服务器
      */
     private String saveCrashInfo2File(Throwable ex) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : infos.entrySet()) {
             String key   = entry.getKey();
             String value = entry.getValue();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/back_100d" />
+        app:srcCompat="@mipmap/back_100d" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +31,7 @@
             android:layout_height="12dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="18dp"
-            android:src="@mipmap/icon_loc" />
+            app:srcCompat="@mipmap/icon_loc" />
 
         <TextView
             android:id="@+id/tv_location"
@@ -48,7 +49,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/tv_location"
             android:padding="8dp"
-            android:src="@mipmap/icon_add_city" />
+            app:srcCompat="@mipmap/icon_add_city" />
 
         <LinearLayout
             android:id="@+id/ll_round"
@@ -65,7 +66,7 @@
             android:layout_height="44dp"
             android:layout_alignParentEnd="true"
             android:padding="14dp"
-            android:src="@mipmap/icon_set" />
+            app:srcCompat="@mipmap/icon_set" />
     </RelativeLayout>
 
 

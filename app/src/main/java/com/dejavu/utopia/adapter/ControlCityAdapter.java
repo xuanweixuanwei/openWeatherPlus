@@ -1,14 +1,14 @@
 package com.dejavu.utopia.adapter;
 
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.bean.CityBean;
@@ -19,10 +19,10 @@ import com.dejavu.utopia.view.activity.ControlCityActivity;
 
 import java.util.List;
 
-public class ControlCityAdapter extends Adapter<ControlCityAdapter.MyViewHolder> {
+public class ControlCityAdapter extends RecyclerView.Adapter<ControlCityAdapter.MyViewHolder> {
 
-    private List<CityBean> datas;
-    private ControlCityActivity activity;
+    private final List<CityBean> datas;
+    private final ControlCityActivity activity;
 
     public ControlCityAdapter(ControlCityActivity controlCityActivity, List<CityBean> datas) {
         activity = controlCityActivity;
@@ -81,7 +81,7 @@ public class ControlCityAdapter extends Adapter<ControlCityAdapter.MyViewHolder>
     }
 
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
         private final ImageView ivDelete;
         private final TextView tvItemCity;

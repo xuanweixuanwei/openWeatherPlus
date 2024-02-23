@@ -1,12 +1,7 @@
-/**
- * 
- */
 package com.dejavu.utopia.view.activity;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,6 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.KeyEvent;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.dejavu.utopia.R;
 
@@ -33,11 +31,11 @@ import java.util.List;
  * @类型名称：PermissionsChecker
  * @since 2.5.0
  */
-public class CheckPermissionsActivity extends Activity {
+public class CheckPermissionsActivity extends AppCompatActivity {
 	//是否需要检测后台定位权限，设置为true时，如果用户没有给予后台定位权限会弹窗提示
-	private boolean needCheckBackLocation = false;
+	private final boolean needCheckBackLocation = false;
 	//如果设置了target > 28，需要增加这个权限，否则不会弹出"始终允许"这个选择框
-	private static String BACKGROUND_LOCATION_PERMISSION = "android.permission.ACCESS_BACKGROUND_LOCATION";
+	private static final String BACKGROUND_LOCATION_PERMISSION = "android.permission.ACCESS_BACKGROUND_LOCATION";
 	/**
 	 * 需要进行检测的权限数组
 	 */
@@ -92,8 +90,8 @@ public class CheckPermissionsActivity extends Activity {
 				if (null != needRequestPermissonList
 						&& needRequestPermissonList.size() > 0) {
 					String[] array = needRequestPermissonList.toArray(new String[needRequestPermissonList.size()]);
-					Method method = getClass().getMethod("requestPermissions", new Class[]{String[].class,
-							int.class});
+					Method method = getClass().getMethod("requestPermissions", String[].class,
+							int.class);
 
 					method.invoke(this, array, PERMISSON_REQUESTCODE);
 				}
@@ -111,7 +109,7 @@ public class CheckPermissionsActivity extends Activity {
 	 *
 	 */
 	private List<String> findDeniedPermissions(String[] permissions) {
-		List<String> needRequestPermissonList = new ArrayList<String>();
+		List<String> needRequestPermissonList = new ArrayList<>();
 		if (Build.VERSION.SDK_INT >= 23
 				&& getApplicationInfo().targetSdkVersion >= 23){
 			try {
@@ -154,6 +152,7 @@ public class CheckPermissionsActivity extends Activity {
 	@TargetApi(23)
 	public void onRequestPermissionsResult(int requestCode,
 			String[] permissions, int[] paramArrayOfInt) {
+		super.onRequestPermissionsResult(requestCode, permissions, paramArrayOfInt);
 		if (requestCode == PERMISSON_REQUESTCODE) {
 			if (!verifyPermissions(paramArrayOfInt)) {
 				showMissingPermissionDialog();

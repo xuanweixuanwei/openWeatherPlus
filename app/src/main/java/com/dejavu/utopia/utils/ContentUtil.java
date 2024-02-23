@@ -10,9 +10,9 @@ import com.dejavu.utopia.MyApplication;
 public class ContentUtil {
 
     //用户id
-    public static final String PUBLIC_ID = "HE2402182350171280";
+    public static final String PUBLIC_ID = "HE2402231431111551";
     //用户key
-    public static final String APK_KEY = "77bbf47ee79748148b782c097b2012eb";
+    public static final String APK_KEY = "cf327606adb84ce7bd6a3306e5cf1f53";
     //当前所在位置
     public static Double NOW_LON = 116.40;
     public static Double NOW_LAT = 39.9;

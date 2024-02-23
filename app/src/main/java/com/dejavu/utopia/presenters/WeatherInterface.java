@@ -32,7 +32,7 @@ public interface WeatherInterface {
      */
     void getAirNow(AirNowBean bean);
 
-    /**
+    /*
      * 空气预报
      */
 //    void getAirForecast(AirForecast bean);

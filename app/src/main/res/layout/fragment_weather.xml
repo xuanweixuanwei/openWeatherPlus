@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
@@ -7,16 +8,9 @@
     android:background="@color/back_white"
     tools:context=".view.fragment.WeatherFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/ll_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -27,7 +21,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="-54dp"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/back_100d" />
+                    app:srcCompat="@mipmap/back_100d" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -35,7 +29,7 @@
                     android:layout_below="@+id/iv_back"
                     android:layout_marginTop="-90dp"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/back" />
+                    app:srcCompat="@mipmap/back" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -149,12 +143,12 @@
                         </RelativeLayout>
 
 
-                        <android.support.v7.widget.RecyclerView
+                        <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_forecast"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                        </android.support.v7.widget.RecyclerView>
+                        </androidx.recyclerview.widget.RecyclerView>
 
                         <include
                             android:id="@+id/today_detail"
@@ -168,8 +162,5 @@
                 </LinearLayout>
             </RelativeLayout>
 
-
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
-</android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

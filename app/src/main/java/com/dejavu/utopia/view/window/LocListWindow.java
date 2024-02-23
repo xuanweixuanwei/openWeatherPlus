@@ -1,12 +1,14 @@
 package com.dejavu.utopia.view.window;
 
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.dejavu.utopia.R;
 import com.dejavu.utopia.adapter.LocLIstAdapter;
@@ -19,8 +21,8 @@ import java.util.List;
 
 public class LocListWindow extends PopupWindow {
 
-    private View view;
-    private MainActivity context;
+    private final View view;
+    private final MainActivity context;
 
     public LocListWindow(View contentView, int width, int height, MainActivity context) {
         super(contentView, width, height);
